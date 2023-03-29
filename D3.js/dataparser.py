@@ -1,12 +1,11 @@
 import csv
 import json
  
- 
 # Function to convert a CSV to JSON
 # Takes the file paths as arguments , def is a function)
 def make_json(csvFilePath, jsonFilePath):
 
-  # create a dictionary
+  # create a list [] and then a dictionary {}
   data = []
   obj = {}
     
@@ -17,16 +16,15 @@ def make_json(csvFilePath, jsonFilePath):
     # Convert each row into a dictionary
     # and add it to data
     for i, rows  in enumerate(csvReader):
+      data = []
+      #specifies the objects in order
+      data.append(rows['Longitude [degrees_east]'])
+      data.append(rows["Latitude [degrees_north]"])
       
-      # # how many datapoint that will be displayed
-      if i <100:
-          
-        # specifies which data to use. 
-        # The "attribute" is the key, and the value is the value of said key {"attribute": value/Latitude}
-        print(rows)
-        data.append({"Latitude": rows["Latitude [degrees_north]"], "Longitude": rows['Longitude [degrees_east]']})
-
-  obj["data"] = data
+      obj["data"+str(i)] = data
+      # how many datapoint that will be displayed
+      if i == 100:
+        break
 
   # Open a json writer, and use the json.dumps()
   # function to dump data
