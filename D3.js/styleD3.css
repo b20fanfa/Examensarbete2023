@@ -18,7 +18,6 @@ html, body, #map {
 }
 
 .stations circle {
-  fill: brown;
-  stroke: black;
+  fill: red;
   stroke-width: 1.5px;
 }
