@@ -34,17 +34,18 @@
           mapTypeId: google.maps.MapTypeId.TERRAIN
         });
 
+        // Code that change the color for the svg circle. 
         google.maps.event.addListener(map, 'zoom_changed', function() {
-            var zoom = map.getZoom();
-            let circles = document.getElementsByTagName("circle");
-            var red = 98;
-            // var red = 255;
-            for(let i = 0; i < circles.length; i++){
-              circles[i].style.fill = "rgba("+ red+",251, 63)";
-              // circles[i].style.fill = "rgba("+ red+","+zoom*20+",0, 1)";
-              console.log(circles[i].r.baseVal.value = zoom*0.4);
-            }
-            console.log(zoom);
+          var zoom = map.getZoom();
+          let circles = document.getElementsByTagName("circle");
+          var red = 98;
+          // var red = 255;
+          for(let i = 0; i < circles.length; i++){
+            circles[i].style.fill = "rgba("+ red+",251, 63)";
+            // circles[i].style.fill = "rgba("+ red+","+zoom*20+",0, 1)";
+            console.log(circles[i].r.baseVal.value = zoom*0.4);
+          }
+          console.log(zoom);
         });
 
         // Load the station data. When the data comes back, create an overlay.
