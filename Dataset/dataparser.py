@@ -1,5 +1,6 @@
 import csv
 import json
+import random
  
  
 # Function to convert a CSV to JSON
@@ -9,17 +10,23 @@ def make_json(csvFilePath, jsonFilePath):
   # create a dictionary
   data = []
   obj = {}
+  seed = 4 
     
   # Open a csv reader called DictReader
   with open(csvFilePath, encoding='utf-8') as csvf:
     csvReader = csv.DictReader(csvf ,delimiter="\t")
-        
+
+    #creates a list of my CSV file
+    dataCSV = list(csvReader) 
+    # Shuffle the list of dictionaries,  here is Shuffle the list that already exists.
+    random.Random(seed).shuffle(dataCSV) 
+  
     # Convert each row into a dictionary
     # and add it to data
-    for i, rows  in enumerate(csvReader):
+    for i, rows  in enumerate(dataCSV):
       
       # # how many datapoint that will be displayed
-      if i <100:
+      if i <10:
           
         # specifies which data to use. 
         # The "attribute" is the key, and the value is the value of said key {"attribute": value/Latitude}
