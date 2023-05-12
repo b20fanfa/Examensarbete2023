@@ -29,7 +29,9 @@
 
     //how many times it should iterate
     if (a < 10 ) {
-      location.reload();
+      setTimeout(function() {
+        location.reload();
+      }, 5000); // 5 seconds in milliseconds
     }
   }, false);
   
